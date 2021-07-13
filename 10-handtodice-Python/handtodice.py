@@ -3,7 +3,7 @@
 # assert(handToDice(123) == (1,2,3))
 # assert(handToDice(214) == (2,1,4))
 # assert(handToDice(422) == (4,2,2))
-# Hint: You might find // and % useful here, and also getKthDigit().
+# Hint: You might find // and % useful here, and also getKthDigit(). 
 
 def handtodice(hand):
 	a=hand%10
