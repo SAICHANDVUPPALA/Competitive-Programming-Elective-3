@@ -11,7 +11,26 @@
 
 
 def fun_applycaesarcipher(msg, shift):
-	return ""
+	n=len(msg)
+	result=""
+	if(shift!=0):
+		for i in range(n):
+			orascii=ord(msg[i])
+			if(orascii==32):
+				ascii=orascii
+			else:
+				ascii=orascii+shift
+				if(ascii>90 and ascii<97 and orascii<91):
+					ascii=ascii-90+64
+				elif(ascii<65):
+					ascii=91-(65-ascii)
+				elif(ascii>90 and ascii<97 and orascii>96):
+					ascii=123-(97-ascii)
+				elif(ascii>122):
+					ascii=ascii-122+96
+			result+=chr(ascii)
+		
+	return result
 
 
 
