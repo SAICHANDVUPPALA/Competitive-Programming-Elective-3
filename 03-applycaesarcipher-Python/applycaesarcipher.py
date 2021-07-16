@@ -15,20 +15,15 @@ def fun_applycaesarcipher(msg, shift):
 	result=""
 	if(shift!=0):
 		for i in range(n):
-			orascii=ord(msg[i])
-			if(orascii==32):
-				ascii=orascii
+			ch=msg[i]
+			if(ch.isupper()):
+				result+=chr((ord(ch)+shift-65)%26+65)
+			elif ch==" ":
+				result+=" "
 			else:
-				ascii=orascii+shift
-				if(ascii>90 and ascii<97 and orascii<91):
-					ascii=ascii-90+64
-				elif(ascii<65):
-					ascii=91-(65-ascii)
-				elif(ascii>90 and ascii<97 and orascii>96):
-					ascii=123-(97-ascii)
-				elif(ascii>122):
-					ascii=ascii-122+96
-			result+=chr(ascii)
+				result+=chr((ord(ch)+shift-97)%26+97)
+
+
 		
 	return result
 
