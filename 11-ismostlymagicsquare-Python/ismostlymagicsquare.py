@@ -15,4 +15,36 @@
 
 def ismostlymagicsquare(a):
 	# Your code goes here
-	pass
+	if(len(a)==1 and len(a[0])==1):
+		return True
+	else:
+		#row
+		sumofrow=[]
+		for i in range(len(a)):
+			sum=0
+			for j in range(len(a[0])):
+				sum+=a[i][j]
+			sumofrow.append(sum)
+		rows=sumofrow.count(sumofrow[0])==len(sumofrow)
+		# print(rows)
+		if(rows):
+			#column
+			sumofcol=[]
+			for i in range(len(a[0])):
+				sum=0
+				for j in range(len(a)):
+					sum+=a[i][j]
+				sumofcol.append(sum)
+			# print(sumofrow,sumofcol)
+			cols=sumofcol.count(sumofcol[0])==len(sumofcol)
+			if(cols):
+				#diagonal
+				d1=0
+				d2=0
+				for i in range(len(a)):
+					d1+=a[i][i]
+					d2+=a[i][-1-i]
+				if(d1==d2):
+					return True
+	return False
+
