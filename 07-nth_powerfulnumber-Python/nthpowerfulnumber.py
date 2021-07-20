@@ -3,7 +3,7 @@
 # 1, and nthPowerfulNumber(10) returns 64.
 # A number n is said to be Powerful Number if for every prime factor p of it, p2 also divides it. 
 # For example:- 36 is a powerful number. It is divisible by both 3 and square of 3 i.e, 9.
-import math
+
 def isprime(x):
 	if(x==2):
 		return True
@@ -34,7 +34,7 @@ def powerfulnumber(x):
 	return False
 
 
-print(powerfulnumber(20))
+
 
 def nthpowerfulnumber(n):
 	# Your code goes here
