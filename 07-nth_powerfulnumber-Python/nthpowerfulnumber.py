@@ -5,7 +5,7 @@
 # For example:- 36 is a powerful number. It is divisible by both 3 and square of 3 i.e, 9.
 import math
 def isprime(x):
-	if(x==1 or x==2):
+	if(x==2):
 		return True
 	else:
 		for i in range(2,int(x/2)+1):
