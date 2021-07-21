@@ -16,7 +16,30 @@
 # assert(ishappynumber(98) == False)
 # assert(ishappynumber(404) == True)
 # assert(ishappynumber(405) == False)
-
+def digits_sum(n):
+	sum=0
+	while(1):
+		r=n%10
+		sum+=r*r
+		n=n//10
+		
+		if(n==0):
+			if(sum>=10):
+				n=sum
+				sum=0
+			else:
+				return sum
 def ishappynumber(n):
 	# your code goes here
-	pass
+	if(n==1):
+		return True
+	
+	elif(n<10):
+		return False
+	sum=digits_sum(n)
+	if(sum==1):
+		return True
+	else:
+		return False
+
+
