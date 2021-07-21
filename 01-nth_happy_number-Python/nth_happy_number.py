@@ -27,12 +27,12 @@ def digits_sum(n):
 			else:
 				return sum
 def ishappynumber(n):
-	# your code goes here
-	# if(n==1):
-	# 	return True
+	#your code goes here
+	if(n==1):
+		return True
 	
-	# elif(n<10):
-	# 	return False
+	elif(n<1):
+		return False
 	sum=digits_sum(n)
 	if(sum==1):
 		return True
