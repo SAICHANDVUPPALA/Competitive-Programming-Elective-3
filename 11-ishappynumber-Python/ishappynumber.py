@@ -34,7 +34,7 @@ def ishappynumber(n):
 	if(n==1):
 		return True
 	
-	elif(n<10):
+	elif(n<1):
 		return False
 	sum=digits_sum(n)
 	if(sum==1):
