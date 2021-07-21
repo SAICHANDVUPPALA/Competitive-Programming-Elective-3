@@ -13,7 +13,38 @@
 # assert(nth_happy_number(6) == 23)
 # assert(nth_happy_number(7) == 28)
 # assert(nth_happy_number(8) == 31)
-
+def digits_sum(n):
+	sum=0
+	while(1):
+		r=n%10
+		sum+=r*r
+		n=n//10
+		
+		if(n==0):
+			if(sum>=10):
+				n=sum
+				sum=0
+			else:
+				return sum
+def ishappynumber(n):
+	# your code goes here
+	# if(n==1):
+	# 	return True
+	
+	# elif(n<10):
+	# 	return False
+	sum=digits_sum(n)
+	if(sum==1):
+		return True
+	else:
+		return False
 
 def nth_happy_number(n):
-	return 0
+	found=0
+	guess=0
+	while(found<n):
+		guess+=1
+		if(ishappynumber(guess)):
+			found+=1
+	return guess
+
