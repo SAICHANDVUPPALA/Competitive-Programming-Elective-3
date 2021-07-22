@@ -9,5 +9,49 @@
 
 import math
 
+def iskaprekarnumber(n):
+    if(n==0):
+        return False
+    elif(n==1):
+        return True
+    
+    if(n**2<10):
+        return False
+    m=str(n**2)
+    l=len(m)
+    m1=m[0:int(l/2)]
+    m2=m[int(l/2):l]
+    
+    sum=int(m1)+int(m2)
+    
+    if(sum==n):
+        return True
+    else:
+        while(len(m1)):
+            if(m1[-1]=='0'):
+                m1=m1[0:-1]
+            else:
+                break
+        while(len(m2)):
+            if(m2[-1]=='0'):
+                m2=m2[0:-1]
+            else:
+                break
+        if(len(m1)==0 or len(m2)==0):
+            return False
+        sum=int(m1)+int(m2)
+        if(sum==n):
+            return True
+    return False
+
+
+
 def fun_nth_kaprekarnumber(n):
-    return 1;
+    found=0
+    guess=0
+    while(found<=n):
+        guess+=1
+        if(iskaprekarnumber(guess)):
+            found+=1
+    return guess
+
