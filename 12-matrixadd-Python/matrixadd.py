@@ -26,7 +26,12 @@ def matrixadd(L, M):
 				return None
 	else:
 		return None
-	N=[[0]*n]*l
+	N=[]
+	for i in range(l):
+		a=[]
+		for j in range(n):
+			a.append(0)
+		N.append(a)
 	print(N)
 	for i in range(l):
 		for j in range(n):
