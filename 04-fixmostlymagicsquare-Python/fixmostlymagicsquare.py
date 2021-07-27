@@ -26,7 +26,7 @@ def fixmostlymagicsquare(L):
 			for j in range(len(M)):
 				sum+=M[j][i]
 			sumofcol.append(sum)
-			print(sumofcol)
+			
 		# print(sumofrow,sumofcol)
 		cols=sumofcol.count(sumofcol[0])==len(sumofcol)
 		if(cols):
@@ -40,10 +40,12 @@ def fixmostlymagicsquare(L):
 				return True
 	else:
 		rowdict=dict((i,sumofrow.count(i)) for i in sumofrow)
-		rowmin=min(rowdict)
-		rowmax=max(rowdict)
-		diffr=rowmax-rowmin
-		sumofrow
+		rwrong=min(rowdict,key=rowdict.get)
+		rcorrect=max(rowdict,key=rowdict.get)
+		diffr=rwrong-rcorrect
+		for i in range(len(sumofrow)):
+			if(sumofrow[i]==rwrong):
+				flag1=i
 		#column
 		sumofcol=[]
 		for i in range(len(M[0])):
@@ -65,13 +67,13 @@ def fixmostlymagicsquare(L):
 				return True
 		else:
 			coldict=dict((i,sumofcol.count(i)) for i in sumofcol)
-			colmin=min(coldict)
-			colmax=max(coldict)
-			diffc=colmax-colmin
+			cwrong=min(coldict,key=rowdict.get)
+			ccorrect=max(coldict,key=rowdict.get)
+			diffc=cwrong-ccorrect
+			for i in range(len(sumofcol)):
+				if(sumofcol[i]==cwrong):
+					flag2=i
 			if(diffr==diffc):
-				#replace the correct element
+				M[flag1][flag2]=M[flag1][flag2]-diffr
 
-
-		
-fixmostlymagicsquare([[16, 3, 2, 13], [5, 10, 11, 18], [9, 6, 7, 12],[4, 15, 14, 1]])
-	# Your code goes here
+	return M
