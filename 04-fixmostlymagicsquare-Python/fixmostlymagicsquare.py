@@ -6,6 +6,72 @@
 # square.
 
 
+
 def fixmostlymagicsquare(L):
-	pass
+	M=L
+	#row
+	sumofrow=[]
+	for i in range(len(M)):
+		sum=0
+		for j in range(len(M[0])):
+			sum+=M[i][j]
+		sumofrow.append(sum)
+	rows=sumofrow.count(sumofrow[0])==len(sumofrow)
+	print(sumofrow,len(sumofrow),rows)
+	if(rows):
+		#column
+		sumofcol=[]
+		for i in range(len(M[0])):
+			sum=0
+			for j in range(len(M)):
+				sum+=M[j][i]
+			sumofcol.append(sum)
+			print(sumofcol)
+		# print(sumofrow,sumofcol)
+		cols=sumofcol.count(sumofcol[0])==len(sumofcol)
+		if(cols):
+			#diagonal
+			d1=0
+			d2=0
+			for i in range(len(M)):
+				d1+=M[i][i]
+				d2+=M[i][-1-i]
+			if(d1!=d2):
+				return True
+	else:
+		rowdict=dict((i,sumofrow.count(i)) for i in sumofrow)
+		rowmin=min(rowdict)
+		rowmax=max(rowdict)
+		diffr=rowmax-rowmin
+		sumofrow
+		#column
+		sumofcol=[]
+		for i in range(len(M[0])):
+			sum=0
+			for j in range(len(M)):
+				sum+=M[j][i]
+			sumofcol.append(sum)
+			
+		# print(sumofrow,sumofcol)
+		cols=sumofcol.count(sumofcol[0])==len(sumofcol)
+		if(cols):
+			#diagonal
+			d1=0
+			d2=0
+			for i in range(len(M)):
+				d1+=M[i][i]
+				d2+=M[i][-1-i]
+			if(d1!=d2):
+				return True
+		else:
+			coldict=dict((i,sumofcol.count(i)) for i in sumofcol)
+			colmin=min(coldict)
+			colmax=max(coldict)
+			diffc=colmax-colmin
+			if(diffr==diffc):
+				#replace the correct element
+
+
+		
+fixmostlymagicsquare([[16, 3, 2, 13], [5, 10, 11, 18], [9, 6, 7, 12],[4, 15, 14, 1]])
 	# Your code goes here
