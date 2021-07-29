@@ -9,6 +9,19 @@
 
 
 
-def fun_getaverage(s): 
-	return 0.0
+def fun_getaverage(s):
+	avg=0
+	count=0
+	l=s.split(",")
+	for i in range(len(l)):
+		if(l[i].isalpha()):
+			avg+=0
+		elif(l[i].isnumeric()):
+			num=int(l[i])
+			count+=1
+			avg+=num
+	if(count==0):
+		return 0
+	avg=avg/count
+	return avg
 
