@@ -51,24 +51,41 @@ def iskaprekarnumber(n):
 def fun_nearestkaprekarnumber(n):
     m=n
     p=n
+    # while(1):
+    #     if(iskaprekarnumber(m)):
+    #         k=m
+    #         break
+    #     else:
+    #         m=m-1
+    # while(1):
+    #     if(iskaprekarnumber(p)):
+    #         l=p
+    #         break
+    #     else:
+    #         p=p+1
+    # less=abs(n-k)
+
+    # great=abs(n-l)
+
+    # if(less<=great):
+    #     return k
+    # elif(less>great):
+    #     return l
+    if(iskaprekarnumber(n)):
+        return n
+    count=1
     while(1):
-        if(iskaprekarnumber(m)):
-            k=m
-            break
-        else:
-            m=m-1
-    while(1):
-        if(iskaprekarnumber(p)):
-            l=p
-            break
-        else:
+        if(count%2==0):
             p=p+1
-    less=abs(n-k)
+            count+=1
+            if(iskaprekarnumber(p)):
+                return p
+        elif(count%2!=0):
+            m=m-1
+            count+=1
+            if(iskaprekarnumber(m)):
+                return m
+        
+        
 
-    great=abs(n-l)
-
-    if(less<=great):
-        return k
-    elif(less>great):
-        return l
 
