@@ -12,6 +12,12 @@
 
 def areAnagrams(s1, s2):
     # Your code goes here...
-    pass
-
+    count=0
+    for i in range(len(s1)):
+        if(s1.count(s1[i])==s2.count(s1[i])):
+            count+=1
+    if(count==len(s1)):
+        return True
 # write your test cases here...
+
+print(areAnagrams("ABA","BAA"))
