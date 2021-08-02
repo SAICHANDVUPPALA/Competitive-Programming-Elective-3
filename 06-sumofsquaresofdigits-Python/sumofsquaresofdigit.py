@@ -6,4 +6,11 @@
 
 def sumofsquaresofdigit(n):
 	# Your code goes here
-	pass
+	m=n
+	sum=0
+	while(m):
+		r=m%10
+		sum+=r**2
+		m=m//10
+	return sum
+
