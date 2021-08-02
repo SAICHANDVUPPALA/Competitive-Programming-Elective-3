@@ -6,63 +6,58 @@
 # counted twice, thus making 4 a Smith Number.
 # so fun_nthsmithnumber(0) should return 4
 # so fun_nthsmithnumber(1) should return 22
-
-def digCount(num):
-    c = 0
-    while num != 0:
-        num = num//10
-        c += 1
-    return c
-#Function to calculate the sum of digits of a number
-def digSum(num):
-    temp = num
-    sum = 0
-    for i in range(digCount(num)):
-        sum+=num%10
-        num//=10
-    return sum
-#Function to check whether a number is prime or not
-def isPrime(num):
-    for i in range(2,num):  
-       if (num % i) == 0:  
-           return False
-       else:  
-           continue
-    return True
-           
-          
- #Function to check whether a number is a Smith Number or not      
-def isSmith(num):
-    if(isPrime(num)):
-         print("This is a prime number and only composite numbers can be Smith numbers")
+def isprime(n):
+    if n==1:
+        return False
+    if n==2:
+        return True    
+    for i in range(2, (n//2)+1):
+        if(n%i==0):
+            return False
     else:
-        prime_factors = []
-        temp = num
-        c = 2
-        while(temp>1):
-            if(temp%c == 0 and isPrime(c)):
-                prime_factors.append(c)
-                temp/=c
+        return True
+       
+def smith(n):
+    if(isprime(n)!=True):
+        k = n
+        factorslist = []
+        factorssum=0
+        digitsum = 0
+        if n==1:
+            return False
+        for i in range(2,(n//2) + 1):
+            if(isprime(i)==True) and (n%i==0):
+                factorslist.append(i)
+         
+        for an in str(n):
+            digitsum+=int(an)
+       
+        li=[]
+        for i in factorslist:
+            while (k%i==0 and k!=0):
+                li.append(i)    
+                factorssum+=i
+                k=k//i
+      
+        repeatsuminfactors = 0        
+        for j in li:
+            if(j>9):
+                for d in str(j):
+                    repeatsuminfactors+=int(d)
             else:
-                c+=1
-                continue
-        for i in range(0,len(prime_factors)):
-            if(digCount(prime_factors[i])>1):
-                while(digCount(prime_factors[i])>1):
-                    prime_factors[i] = digSum(prime_factors[i])
-        if(sum(prime_factors) == digSum(num)):
+               repeatsuminfactors+=j
+        
+        if(digitsum==repeatsuminfactors):
             return True
         else:
             return False
-
 def fun_nth_smithnumber(n):
-    found=0
-    guess=0
-    while(1):
-        if(isSmith(guess)):
-            if(found==n):
-                return guess
-            found+=1
-            
-        guess+=1
-    return guess
+    count=0
+    position=1
+    result = 0
+    while(n+1!=count):
+        if(smith(position)==True):
+            count+=1
+            result = position
+        position+=1
+    return result
